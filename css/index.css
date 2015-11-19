@@ -1,13 +1,154 @@
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
+  background: -webkit-linear-gradient(black, white);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+footer{
+  position: absolute;
+  bottom:0;
+  height:100px;
+  width:100%;
+  background: black;
+  color:white;
+}
+.copyright{
+  text-align:right;
+  margin-right:10px;
+}
+.contact{
+  text-align:right;
+  margin-right:10px;
 }
 #coming{
-  font-size:20px;
+  font-size:40px;
   position: relative;
   margin:0 auto;
-  top: 200px;
+  top: 100px;
   text-align: center;
+}
+#illustrate{
+  width:100%;
+  position: relative;
+  top:100px;
+  margin:0 auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  font-size:24px;
+  text-align:center;
+  background:black;
+}
+
+#day{
+  color:blue;
+}
+#hour{
+  color:green;
+}
+#minute{
+  color:orange;
+}
+#second{
+  color:white;
+}
+
+
+#timeWrapper{
+  width:90%;
+  position: relative;
+  margin:0 auto;
+  top:100px;
+  text-align:center;
+}
+#timeWrapper > span{
+  display:inline-block;
+  width:120px;
+  height:160px;
+  background:black;
+}
+#timeWrapper > span > div{
+  margin-top:2px;
+  margin-bottom:2px;
+}
+#timeWrapper > span > div:nth-of-type(1){
+  height:12px;
+}
+#timeWrapper > span > div:nth-of-type(2){
+  height:50px;
+}
+#timeWrapper > span > div:nth-of-type(3){
+  height:12px;
+}
+#timeWrapper > span > div:nth-of-type(4){
+  height:50px;
+}
+#timeWrapper > span > div:nth-of-type(5){
+  height:12px;
+}
+
+.top{
+  border-bottom:8px solid gray;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+}
+.bottom{
+  border-top:8px solid gray;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+}
+.left{
+  border-right:8px solid gray;
+  border-top:8px solid transparent;
+  border-bottom:8px solid transparent;
+}
+.right{
+  border-left:8px solid gray;
+  border-top:8px solid transparent;
+  border-bottom:8px solid transparent;
+}
+
+.a .top, .d .top, .g .top{
+  height:0;
+  width:50px;
+
+  position: relative;
+  margin:0 auto;
+}
+.a .bottom, .d .bottom, .g .bottom{
+  height:0;
+  width:50px;
+
+  position: relative;
+  margin:0 auto;
+}
+.f .left, .e .left{
+  height:40px;
+  width:10px;
+
+  display:inline-block;
+  float:left;
+}
+.f .right, .e .right{
+  height:40px;
+  width:0px;
+
+  display:inline-block;
+  float:left;
+}
+.b .left, .c .left{
+  height:40px;
+  width:0px;
+
+  display:inline-block;
+  float:right;
+}
+.b .right, .c .right{
+  height:40px;
+  width:10px;
+
+  display:inline-block;
+  float:right;
 }
