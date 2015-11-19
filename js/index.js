@@ -12,9 +12,9 @@ $(function(){
     var s = Math.floor(diff_time%60);
 //    console.log(d+' day '+h+' h '+m+' m '+s+' s');
     if(diff_time>0){
-      lightNumber($('#day2'), Math.floor(d/100), 'blue');
-      lightNumber($('#day1'), Math.floor(d/10)%10, 'blue');
-      lightNumber($('#day0'), d%10, 'blue');
+      lightNumber($('#day2'), Math.floor(d/100), 'red');
+      lightNumber($('#day1'), Math.floor(d/10)%10, 'red');
+      lightNumber($('#day0'), d%10, 'red');
 
       lightNumber($('#hour1'), Math.floor(h/10), 'green');
       lightNumber($('#hour0'), h%10, 'green');
@@ -22,8 +22,8 @@ $(function(){
       lightNumber($('#minute1'), Math.floor(m/10), 'orange');
       lightNumber($('#minute0'), m%10, 'orange');
 
-      lightNumber($('#second1'), Math.floor(s/10), 'white');
-      lightNumber($('#second0'), s%10, 'white');
+      lightNumber($('#second1'), Math.floor(s/10), 'yellow');
+      lightNumber($('#second0'), s%10, 'yellow');
     }else{
 
     }
