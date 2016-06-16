@@ -1,4 +1,4 @@
-var expiration_time = new Date('2016-2-1 12:30:00');
+var expiration_time = new Date('2016-9-1 12:30:00');
 var start_time = new Date();
 var diff_time = (expiration_time - start_time)/1000;
 
