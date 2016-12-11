@@ -1,95 +1,74 @@
-var expiration_time = new Date('2016-9-1 12:30:00');
-var start_time = new Date();
-var diff_time = (expiration_time - start_time)/1000;
+(function() {
+  drawCanvas();
+})();
 
-$(function(){
-  setInterval(function(){
-    diff_time--;
+function drawCanvas() {
+  var canvas;
+  var context;
+  var site = './'
 
-    var d = Math.floor(diff_time/(24*3600));
-    var h = Math.floor((diff_time%(24*3600))/3600);
-    var m = Math.floor((diff_time%3600)/60);
-    var s = Math.floor(diff_time%60);
-//    console.log(d+' day '+h+' h '+m+' m '+s+' s');
-    if(diff_time>0){
-      lightNumber($('#day2'), Math.floor(d/100), 'red');
-      lightNumber($('#day1'), Math.floor(d/10)%10, 'red');
-      lightNumber($('#day0'), d%10, 'red');
+  canvas = document.getElementById('name');
+  context = canvas.getContext('2d');
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
-      lightNumber($('#hour1'), Math.floor(h/10), 'green');
-      lightNumber($('#hour0'), h%10, 'green');
+  Promise.all([getMesh(), getPoly()])
+    .spread(function(position, poly) {
+      console.log(poly);
+      return drawPolygon(poly, position);
+    });
 
-      lightNumber($('#minute1'), Math.floor(m/10), 'orange');
-      lightNumber($('#minute0'), m%10, 'orange');
+  function getMesh() {
+    return $.ajax({
+      //'url': `${site}models/demonic.json`,
+      'url': `${site}models/demonic.json`,
+      'type': 'GET'
+    }).then(function(data, textStatus) {
+      console.log(data);
+      var position = [];
+      var i;
+      for (i = 0; i < data.length; i++) {
+        position[i] = [];
+        position[i][0] = data[i]['pos'][0] *= 500;
+        position[i][1] = data[i]['pos'][1] *= 500;
+      }
+      return position
+    });
+  }
 
-      lightNumber($('#second1'), Math.floor(s/10), 'yellow');
-      lightNumber($('#second0'), s%10, 'yellow');
-    }else{
+  function getPoly() {
+    return $.ajax({
+      'url': `${site}models/demonic_poly.json`,
+      //'url': `${site}models/demonic_poly.json`,
+      'type': 'GET'
+    });
+  }
 
-    }
-  }, 1000);
-});
+  function drawPolygon(data, position) {
+    return new Promise(function (resolve) {
+      var i = 0
+      var iv
 
-var control = [];
-control[0]  = ['a', 'b', 'c', 'd', 'e', 'f'];
-control[1]  = ['b', 'c'];
-control[2]  = ['a', 'b', 'g', 'e', 'd'];
-control[3]  = ['a', 'b', 'g', 'c', 'd'];
-control[4]  = ['f', 'g', 'b', 'c'];
-control[5]  = ['a', 'f', 'g', 'c', 'd'];
-control[6]  = ['a', 'f', 'e', 'g', 'c', 'd'];
-control[7]  = ['a', 'b', 'c'];
-control[8]  = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-control[9]  = ['a', 'b', 'c', 'd', 'f', 'g'];
+      function _draw() {
+        if (i >= data.length) {
+          clearTimeout(iv);
+          resolve();
+          return;
+        }
+        context.beginPath();
+        context.moveTo(position[data[i]][0], position[data[i]][1]);
+        context.lineTo(position[data[i + 1]][0], position[data[i + 1]][1]);
+        context.moveTo(position[data[i + 1]][0], position[data[i + 1]][1]);
+        context.lineTo(position[data[i + 2]][0], position[data[i + 2]][1]);
+        context.moveTo(position[data[i + 2]][0], position[data[i + 2]][1]);
+        context.lineTo(position[data[i]][0], position[data[i]][1]);
+        context.lineWidth = 1;
+        context.strokeStyle = '#000000';
+        context.stroke();
+        i = i + 3;
+      }
 
-function lightNumber(target, number, color){
-  var i;
-  target.find('.a .top').css('border-bottom', '8px solid gray');
-  target.find('.a .bottom').css('border-top', '8px solid gray');
-  target.find('.g .top').css('border-bottom', '8px solid gray');
-  target.find('.g .bottom').css('border-top', '8px solid gray');
-  target.find('.d .top').css('border-bottom', '8px solid gray');
-  target.find('.d .bottom').css('border-top', '8px solid gray');
-
-
-  target.find('.f .left').css('border-right', '8px solid gray');
-  target.find('.f .right').css('border-left', '8px solid gray');
-  target.find('.e .left').css('border-right', '8px solid gray');
-  target.find('.e .right').css('border-left', '8px solid gray');
-  target.find('.b .left').css('border-right', '8px solid gray');
-  target.find('.b .right').css('border-left', '8px solid gray');
-  target.find('.c .left').css('border-right', '8px solid gray');
-  target.find('.c .right').css('border-left', '8px solid gray');
-  for(i=0; i<control[number].length; i++){
-    switch(control[number][i]){
-      case 'a':
-        target.find('.a .top').css('border-bottom', '8px solid '+color);
-        target.find('.a .bottom').css('border-top', '8px solid '+color);
-      break;
-      case 'b':
-        target.find('.b .left').css('border-right', '8px solid '+color);
-        target.find('.b .right').css('border-left', '8px solid '+color);
-      break;
-      case 'c':
-        target.find('.c .left').css('border-right', '8px solid '+color);
-        target.find('.c .right').css('border-left', '8px solid '+color);
-      break;
-      case 'd':
-        target.find('.d .top').css('border-bottom', '8px solid '+color);
-        target.find('.d .bottom').css('border-top', '8px solid '+color);
-      break;
-      case 'e':
-        target.find('.e .left').css('border-right', '8px solid '+color);
-        target.find('.e .right').css('border-left', '8px solid '+color);
-      break;
-      case 'f':
-        target.find('.f .left').css('border-right', '8px solid '+color);
-        target.find('.f .right').css('border-left', '8px solid '+color);
-      break;
-      case 'g':
-        target.find('.g .top').css('border-bottom', '8px solid '+color);
-        target.find('.g .bottom').css('border-top', '8px solid '+color);
-      break;
-    }
+      iv = setInterval(_draw, 1)
+    })
   }
 }
+
