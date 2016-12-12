@@ -21,6 +21,12 @@ module.exports = {
           presets: ['es2015'],
           plugins: ['transform-runtime']
         }
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
       }
     ]
   },
@@ -34,6 +40,9 @@ module.exports = {
     loaders: {
       js: 'babel'
     }
+  },
+  eslint: {
+    configFile: '.eslintrc'
   }
 };
 
