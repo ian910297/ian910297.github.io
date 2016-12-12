@@ -21,7 +21,8 @@
   "homepage": "https://github.com/ian910297/ian910297.github.io#readme",
   "dependencies": {
     "jQuery": "^1.7.4",
-    "vue": "^2.1.4"
+    "vue": "^2.1.4",
+    "vue-router": "^2.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.20.0",

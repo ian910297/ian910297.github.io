@@ -9,18 +9,14 @@ module.exports = {
   },
   module: {// different file extension
     loaders: [
+     {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/
+      },
       {
         test: /\.vue$/,
         loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015'],
-          plugins: ['transform-runtime']
-        }
       },
       {
         enforce: 'pre',
