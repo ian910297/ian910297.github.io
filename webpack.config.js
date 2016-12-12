@@ -1,29 +1,39 @@
 var path = require('path');
 
 module.exports = {
-  entry: './src/js/main.js',
+  entry: {
+    bundle: './src/js/main.js'
+  },
   output: {
     path: './dist',
     publicPath: '/dist',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {// different file extension
     loaders: [
-     {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/
-      }
+    {
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: /node_modules/
+    },
+    {
+      test: /\.vue$/,
+      loader: 'vue'
+    },
+    {
+      test: /\.scss$/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader']
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url',
+    },
+    {
+      enforce: 'pre',
+      test: /\.js$/,
+      loader: 'eslint-loader',
+      exclude: /node_modules/
+    }
     ]
   },
   resolve: {

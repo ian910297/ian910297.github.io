@@ -1,5 +1,5 @@
-import HomePage from './pages/HomePage'
-import Experience from './pages/Experience'
+import HomePage from './views/HomePage'
+import Experience from './views/Experience'
 
 const routes = [
   {

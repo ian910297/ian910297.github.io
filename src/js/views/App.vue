@@ -1,3 +1,9 @@
+<style>
+  html {
+    font-family: 'Abril Fatface', cursive;
+  }
+</style>
+
 <template>
 <div>
   <div class="header">
@@ -6,20 +12,19 @@
   <div class="pages">
     <router-view></router-view>
   </div>
+  <Footer></Footer>
 </div>
 </template>
 
 <script>
   import HeaderBar from '../components/HeaderBar'
+  import Footer from '../components/Footer'
 
   export default {
     components: {
-      HeaderBar
+      'header-bar': HeaderBar,
+      'Footer': Footer
     }
   }
 </script>
-
-<style>
-
-</style>
 
