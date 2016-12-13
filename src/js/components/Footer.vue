@@ -1,4 +1,4 @@
-<style lang="sass">
+<style lang="scss" scoped>
 .footer {
   position: absolute;
   right: 0;
@@ -20,7 +20,7 @@
 var currentYear = new Date().getFullYear()
 
 export default {
-  data: function() {
+  data: function () {
     return {
       year: currentYear
     }

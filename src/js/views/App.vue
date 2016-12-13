@@ -12,7 +12,7 @@
   <div class="pages">
     <router-view></router-view>
   </div>
-  <Footer></Footer>
+  <my-footer></my-footer>
 </div>
 </template>
 
@@ -23,7 +23,7 @@
   export default {
     components: {
       'header-bar': HeaderBar,
-      'Footer': Footer
+      'my-footer': Footer
     }
   }
 </script>

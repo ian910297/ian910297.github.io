@@ -21,12 +21,22 @@ module.exports = {
       loader: 'vue'
     },
     {
-      test: /\.scss$/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader']
-    },
+      test: /\.s[a|c]ss$/,
+      loader: ['style-loader', 'css-loader', 'sass-loader']
+    },/*
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
       loader: 'url',
+      query: {
+        limit: 9000
+      }
+    },*/
+    {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'file',
+      query: {
+        name: '/assets/[hash].[ext]',
+      }
     },
     {
       enforce: 'pre',
@@ -44,7 +54,8 @@ module.exports = {
   },
   vue: {
     loaders: {
-      js: 'babel'
+      js: 'babel!eslint',
+      scss: 'style!css!sass'
     }
   },
   eslint: {
