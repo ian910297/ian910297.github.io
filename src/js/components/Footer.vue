@@ -11,9 +11,12 @@
 </style>
 
 <template>
-  <div class="footer">
-    <div class="copyright">&copy;2016-{{ year }} Chi Chung Yi All Rights Reserved</div>
-  </div>
+  <footer class="page-footer">
+    <div class="container"></div>
+    <div class="footer-copyright">
+      &copy;2016-{{ year }} Chi Chung Yi, All Rights Reserved
+    </div>
+  </footer>
 </template>
 
 <script>
