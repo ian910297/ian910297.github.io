@@ -43,6 +43,7 @@
     "url-loader": "^0.5.7",
     "velocity-animate": "^1.4.0",
     "vue-loader": "^10.0.2",
+    "vue-materials": "^1.0.7-rc.6",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.4",
     "webpack": "^1.14.0"
