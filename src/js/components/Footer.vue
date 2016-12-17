@@ -1,20 +1,9 @@
-<style lang="scss" scoped>
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
-}
-</style>
-
 <template>
-  <footer class="page-footer">
-    <div class="container"></div>
+  <footer class="page-footer grey darken-3">
     <div class="footer-copyright">
-      &copy;2016-{{ year }} Chi Chung Yi, All Rights Reserved
+      <div class="container">
+        &copy;2016-{{ year }} Chi Chung Yi, All Rights Reserved
+      </div>
     </div>
   </footer>
 </template>

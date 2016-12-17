@@ -1,4 +1,8 @@
 <style lang="scss">
+html {
+  font-family: 'Noto Sans', sans-serif;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -16,10 +20,8 @@ main {
     <div class="header">
       <header-bar></header-bar>
     </div>
-    <div class="container">
-      <div class="pages">
-        <router-view></router-view>
-      </div>
+    <div class="pages">
+      <router-view></router-view>
     </div>
     <my-footer></my-footer>
   </div>

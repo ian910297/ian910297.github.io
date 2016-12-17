@@ -1,11 +1,11 @@
+// System Library
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import VueMaterial from 'vue-materials'
 
+// Demonic's Library
 import App from './views/App'
 import routes from './routes'
 
-Vue.use(VueMaterial)
 Vue.use(VueRouter)
 
 const router = new VueRouter({

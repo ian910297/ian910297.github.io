@@ -1,10 +1,10 @@
-import HomePage from './views/HomePage'
+import Home from './views/Home'
 import Experience from './views/Experience'
 
 const routes = [
   {
     path: '/',
-    component: HomePage
+    component: Home
   },
   {
     path: '/Experience',
