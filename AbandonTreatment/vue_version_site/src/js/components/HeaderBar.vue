@@ -4,7 +4,6 @@
 }
 .nav-wrapper {
   background: white;
-
   a {
     color: black;
   }

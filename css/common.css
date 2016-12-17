@@ -1,0 +1,12 @@
+/*
+ * Header
+ * */
+.brand-logo {
+  font-family: 'Monoton', cursive;
+}
+.nav-wrapper {
+  background: white;
+}
+.nav-wrapper a {
+  color: black;
+}
