@@ -1,55 +1,26 @@
 'use strict';
 
-let tag = {
-  'programming': {
-    'color': 'blue',
-    'elements': {
-      'c': 100,
-      'php': 60,
-      'javascript': 60,
-      'c++': 40,
-      'matlab': 1,
-      'java': 1
-    }
-  }
-};
-
-let tagCloud2D = function(el) {
-  return {
-    'target': document.querySelector(el),
-    'draw': function(content) {
-      let result = '';
-
-      for (let prop in content) {
-        let color = content[prop].color;
-        for (let name in content[prop].elements) {
-          let score = content[prop].elements[name];
-          result += this.generateTag(name, score, color);
-          console.log(result);
-        }
-      }
-
-      this.target.innerHTML = result;
-    },
-    'generateTag': function(name, score, color) {
-      let fontsize;
-      if(score >= 80) {
-        fontsize = 72;
-      } else if(score >= 60) {
-        fontsize = 48;
-      } else if(score >= 40) {
-        fontsize = 28;
-      } else {
-        fontsize = 12;
-      }
-
-      return `<span style="font-size:${fontsize}px; color:'${color}';">${name}</span>`;
-    }
-  }
-};
+let tag = [
+  {text: '腳踏車', weight: 25},
+  {text: '桌球', weight: 10},
+  {text: '籃球', weight: 10},
+  {text: '武俠小說', weight: 10},
+  {text: '網路小說', weight: 10},
+  {text: '線上遊戲', weight: 10},
+  {text: 'javascript', weight: 10},
+  {text: 'php', weight: 10},
+  {text: 'sql', weight: 5},
+  {text: 'c', weight: 8},
+  {text: 'c++', weight: 5},
+  {text: 'python', weight: 5},
+  {text: 'ruby', weight: 2},
+  {text: 'matlab', weight: 2},
+  {text: 'java', weight: 2},
+  {text: '言情小說', weight: 2},
+  {text: '唱歌', weight: 1},
+];
 
 (function() {
-  var t = new tagCloud2D('#tagCloud2D');
-  t.draw(tag);
+  $('#tagCloud2D').jQCloud(tag);
 })();
 
