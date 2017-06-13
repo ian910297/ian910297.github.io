@@ -10,3 +10,10 @@
 .nav-wrapper a {
   color: black;
 }
+
+/*
+ * Chinese Traditional
+ */
+.chinese {
+  font-family: 'Noto Sans TC', sans-serif;
+}
