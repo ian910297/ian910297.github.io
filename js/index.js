@@ -22,5 +22,16 @@ let tag = [
 
 (function() {
   $('#tagCloud2D').jQCloud(tag);
+
+  $('#contactBtn').click(function() {
+    $('body').append('<textarea id="clip_area"></textarea>');
+    var clip_area = $('#clip_area');
+    clip_area.text('ian910297@gmail.com');
+    clip_area.select();
+    document.execCommand('copy');
+    clip_area.remove();
+
+    Materialize.toast('已複製我的Email至您的剪貼簿, ian910297@gmail.com', 2000);
+  });
 })();
 
